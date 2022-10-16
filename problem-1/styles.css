@@ -1,0 +1,30 @@
+div {
+	color: blue;
+  	text-align: center;
+	font-family: verdana;
+	font-size: 20px;
+}
+
+.flexible-grid {
+	border: 1px #000000 solid;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flexible-item {
+	border: 1px #000000 solid;
+	width: 25%;
+	box-sizing: border-box;
+}
+
+@media (max-width: 720px) {
+	.flexible-item {
+		width: 50%;
+	}
+}
+
+@media (max-width: 360px) {
+	.flexible-item {
+		width: 100%;
+	}
+}

@@ -1,0 +1,1 @@
+Provides an initial warning alert and then immediately changes background colour and images to online pictures of dogs that i have found when ok is pressed.

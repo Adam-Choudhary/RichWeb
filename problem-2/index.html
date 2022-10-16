@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Problem 2</title>
+	<link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+	<textarea id = "note-input" type = "text" ></textarea>
+	<div class = "box">
+		<label for = "note-colour">Colour: </label>
+		<select id = "note-colour">
+			<option value = "red">Red</option>
+			<option value = "green">Green</option>
+			<option value = "blue">Blue</option>
+		</select>
+		<button id = "note-button">Create</button>
+	</div>
+	<div id = "notes">
+
+	</div>
+	<template>
+		<div class = "box note space-between">
+			<pre class = "note-contents"></pre>
+			<div>
+				<button class = "edit-note-button">Edit note</button>
+				<button class = "delete-note-button">Delete note</button>
+			</div>
+		</div>
+	</template>
+	<script src = "index.js"></script>
+</body>
+</html>
