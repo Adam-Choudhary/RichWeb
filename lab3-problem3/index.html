@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel = "stylesheet" href = "index.css">
+		<script src = "https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"></script>
+		<script src = "index.js"></script>
+	</head>
+
+	<body>
+		<div id = "note">
+			<textarea id = "note-input" cols = 20 rows = 10></textarea>
+			<br>
+			<button id = "add-note">Add note</button>
+		</div>
+
+		<template id = "parent-note">
+			<div class = "note">
+				<div class = "note-text"></div>
+				<textarea class = "enter-childnote" cols = 100></textarea><br>
+				<button class = "append-child">Child Note</button><br>
+				<button class = "delete">Remove</button>
+			</div>
+		</template>
+
+		<template id = "child-note">
+			<div class = "note">
+				<div class = "note-text"></div>
+			</div>
+		</template>
+
+	</body>
+</html>

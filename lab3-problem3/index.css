@@ -1,0 +1,16 @@
+.note {
+	background-color: yellowgreen;
+}
+
+#note {
+	width: 30%;
+}
+
+#note-input {
+	display: inline-block;
+	width: 20%;
+}
+
+textarea {
+	resize: none;
+  }
