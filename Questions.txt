@@ -1,0 +1,129 @@
+QUESTION 1
+Props and state are both utilized in React to manage and store data inside of a component. They do, however, have some significant distinctions and varied functions.
+A technique to transfer data from a parent component to a child component is by using props (short for "properties"). They can't be changed by the child component and are essentially read-only. In the render method, props are supplied to the child component as an argument, as in:
+class ParentComponent extends React.Component {
+  render() {
+    return (
+      <ChildComponent name="Adam" age={20} />
+    );
+  }
+}
+
+
+The child component can then access the props using this.props, like this:
+class ChildComponent extends React.Component {
+  render() {
+    return (
+      <div>
+        Name: {this.props.name} <br/>
+        Age: {this.props.age}
+      </div>
+    );
+  }
+}
+
+
+On the other hand, state is utilized within a component to store and manage data that can change over time. Only the setState method of React can be used to change it because it is private to the component. Here is an illustration of how state might be used in a component:
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+  handleClick() {
+    this.setState({ count: this.state.count + 1 });
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={() => this.handleClick()}>Click me</button>
+        <p>You have clicked the button {this.state.count} times.</p>
+      </div>
+    );
+  }
+}
+
+The component has a count state variable with an initial value of 0. The component also contains a handleClick method that, whenever the button is clicked, increases the count by 1. The current value of count is then shown via the component's render function. The component is re-rendered with the new value each time the button is clicked, updating the count value.
+
+QUESTION 2
+In functional programming, a functor is a design pattern that represents a value that can be mapped over. It is an object that implements a single method, map, which takes a function as an argument and applies it to the value contained within the functor.
+Here is an example of a functor in JavaScript:
+class Functor {
+  constructor(value) {
+    this.value = value;
+  }
+
+  map(fn) {
+    return new Functor(fn(this.value));
+  }
+}
+To use this functor, you can create a new instance and call the map method on it, passing in a function that transforms the value contained within the functor:
+const functor = new Functor(5);
+const mappedFunctor = functor.map((x) => x * 2);
+console.log(mappedFunctor.value); // 10
+Functors are often used in functional programming to abstract over the mapping of values, allowing functions to be written that are independent of the specific data structure being used to represent the values.
+
+QUESTION 3
+Callbacks
+Advantage:
+Callbacks are simple to understand and use. They do not require any additional libraries or frameworks, and can be easily implemented using plain JavaScript.
+Disadvantage:
+Callbacks can lead to callback hell, where the code becomes deeply nested and difficult to read and understand. This can be particularly problematic when dealing with complex async flows or when working with large codebases.
+
+Promises
+Advantage:
+Promises allow async code to be written in a more linear and readable style, using thenables and chaining. This can make it easier to understand and debug async code, as it avoids the callback hell problem.
+Disadvantage:
+Promises can be difficult for beginners to understand, as they require a different way of thinking about async flows. Additionally, they do not support cancellation or early resolution, which can be a problem in some situations.
+
+Streams
+Advantage:
+Streams are very efficient, as they allow data to be processed and transformed as it is being read or written, rather than having to load the entire dataset into memory at once. This can be particularly useful for working with large datasets or when working with data that is being continuously generated.
+Disadvantage:
+Streams can be more complex to work with than other async mechanisms, as they involve working with multiple chunks of data and managing backpressure. Additionally, they may require additional libraries or frameworks to be used, which can add overhead to the development process.
+
+QUESTION 4
+The CSS Box Model is a layout model that defines the rectangular boxes that are generated for elements in the document tree and the dimensions of those boxes. It consists of four main parts: the content box, the padding box, the border box, and the margin box.
+Here is a diagram that illustrates the CSS Box Model:
++----------------+
+|                |
+|  Margin        |
+|                |
++----------------+
+|                |
+|  Border        |
+|                |
++----------------+
+|                |
+|  Padding       |
+|                |
++----------------+
+|                |
+|  Content       |
+|                |
++----------------+
+The content box is the innermost box, and it represents the area where the actual content of the element is displayed. The padding box surrounds the content box and adds space around the content. The border box surrounds the padding box and adds a border around the element. The margin box is the outermost box and adds space around the border box.
+
+Here is an example of how the CSS Box Model can be used to space DOM elements:
+.element {
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  border: 10px solid black;
+  margin: 30px;
+}
+
+In this example, the width and height of the content box are set to 300px and 200px, respectively. The padding is set to 20px on all sides, which adds 40px to the width and height of the element. The border is set to 10px on all sides, which adds 20px to the width and height of the element. The margin is set to 30px on all sides, which adds 60px to the width and height of the element.
+The resulting dimensions of the element will be 460px in width and 340px in height, due to the addition of the padding, border, and margin.
+
+QUESTION 5
+When a user enters a URL into their web browser and hits enter, the browser initiates a process to load and bootstrap the rich web application associated with that URL. This process can be broken down into the following steps:
+	1. The browser sends a request to the web server for the initial HTML file of the application, using the HTTP protocol.
+	2. The web server responds by sending the HTML file to the browser.
+	3. The browser receives the HTML file and begins parsing it. As it parses the HTML, it constructs the Document Object Model (DOM), which represents the structure and content of the HTML document as a tree of objects.
+	4. The browser encounters any external resources (such as CSS or JavaScript files) that are linked to in the HTML file, and sends requests to the web server to retrieve them.
+	5. The web server responds by sending the requested resources to the browser.
+	6. The browser receives the resources and begins loading and executing them. This includes parsing and executing any JavaScript code in the application, which may include making additional requests to the server for data or other resources.
+	7. As the application code executes, it may modify the DOM or add additional content to the page, causing the browser to update the display accordingly.
+	8. Once all of the resources have been loaded and the application code has been executed, the browser has fully loaded and bootstrapped the rich web application.
